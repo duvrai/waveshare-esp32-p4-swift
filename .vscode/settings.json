@@ -1,0 +1,13 @@
+{
+  "idf.espIdfPath": "${env:IDF_PATH}",
+  "idf.toolsPath": "${env:IDF_TOOLS_PATH}",
+  "idf.pythonBinPath": "python3",
+  "idf.customExtraPaths": "",
+  "idf.customExtraVars": {},
+  "files.associations": {
+    "*.swift": "swift"
+  },
+  "cmake.configureSettings": {
+    "CMAKE_Swift_COMPILER": "${env:HOME}/.swiftly/bin/swiftc"
+  }
+}

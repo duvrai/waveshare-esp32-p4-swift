@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "idf.py build",
+      "options": {
+        "env": {
+          "CMAKE_Swift_COMPILER": "${env:HOME}/.swiftly/bin/swiftc"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Flash & Monitor",
+      "type": "shell",
+      "command": "idf.py -p ${input:port} flash monitor",
+      "options": {
+        "env": {
+          "CMAKE_Swift_COMPILER": "${env:HOME}/.swiftly/bin/swiftc"
+        }
+      },
+      "group": "build",
+      "problemMatcher": ["$gcc"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Set target esp32p4",
+      "type": "shell",
+      "command": "idf.py set-target esp32p4",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always" }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "port",
+      "type": "promptString",
+      "description": "Serial port (e.g. /dev/cu.usbserial-*)",
+      "default": "/dev/cu.usbserial-0001"
+    }
+  ]
+}

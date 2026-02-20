@@ -1,0 +1,7 @@
+# Waveshare ESP32-P4-ETH Embedded Swift
+
+- Always use Embedded Swift rules: no Foundation, no dynamic runtime; use `-enable-experimental-feature Embedded`, `-parse-as-library`, `-Osize`, and `-target riscv32-none-none-eabi`.
+- Prefer Swift-MMIO or direct register access for peripherals; use BridgingHeader.h for ESP-IDF/FreeRTOS (vTaskDelay, printf, app_main).
+- Keep the app binary under 256 KB: enable size optimizations, avoid large dependencies, use CONFIG_COMPILER_OPTIMIZATION_SIZE and strip unneeded features.
+- CMAKE_Swift_COMPILER must point to the project's Swift 6.3-dev toolchain at ~/.swiftly/bin/swiftc.
+- Target is esp32p4 (RISC-V); use march=rv32imafc_zicsr_zifencei and mabi=ilp32f where needed.
